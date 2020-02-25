@@ -4,7 +4,8 @@
   "description": "start template",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",

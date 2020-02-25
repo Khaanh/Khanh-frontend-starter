@@ -1,11 +1,14 @@
 const gulp = require('gulp'),
 	  sass = require('gulp-sass'),
-	  browserSync = require('browser-sync');
+	  browserSync = require('browser-sync'),
+	  sourcemaps = require('gulp-sourcemaps');
 
 
 gulp.task('sass', function() {
 	return gulp.src('app/scss/**/*.scss')
-		.pipe(sass())
+		.pipe(sourcemaps.init())
+		.pipe(sass().on('error', sass.logError))
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('app/css'))
 		.pipe(browserSync.reload({stream: true}))
 })
