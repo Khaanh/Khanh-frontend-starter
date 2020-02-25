@@ -1,0 +1,10 @@
+.popups {
+  position: fixed;
+  background-color: red;
+  height: 50vh;
+  color: #fff; }
+
+body {
+  background-color: #000;
+  color: #fff;
+  height: 100vh; }
