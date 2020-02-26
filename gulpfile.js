@@ -7,7 +7,9 @@ cssnano = require('gulp-cssnano'),
 rename = require('gulp-rename'),
 concat = require('gulp-concat'),
 uglify = require('gulp-uglify')
-del = require('del');
+del = require('del'),
+imagemin = require('gulp-imagemin'),
+changed = require('gulp-changed');
 
 
 gulp.task('sass', function() {
@@ -23,10 +25,27 @@ gulp.task('sass', function() {
 	.pipe(browserSync.reload({stream: true}))
 })
 
+gulp.task('css', function() {
+	return gulp.src('app/scss/**/*.scss')
+		.pipe(sass())
+		.pipe(concat('main.css'))
+		.pipe(gulp.dest('dist/css'))
+})
 
+gulp.task('img', function() {
+	return gulp.src('app/img/**/*')
+		.pipe(changed('dist/img'))
+		.pipe(imagemin({
+			progressive: true, 
+			optimizationLevel: 0, 
+			interlaced: true
+		}))
+		.pipe(gulp.dest('dist/img'))
+})
 
 gulp.task('js', function() {
 	return gulp.src('app/js/main.js')
+	.pipe(gulp.dest('dist/js'))
 	.pipe(uglify({
 		mangle: {
 			toplevel: true
@@ -39,7 +58,7 @@ gulp.task('js', function() {
 })
 
 gulp.task('js-libs', function() {
-	return gulp.src('app/js/libs/*.js')
+	return gulp.src(['app/js/libs/*.js' , '!app/js/libs/*min.js'])
 		.pipe(uglify({
 			mangle: {
 				toplevel: true
@@ -74,8 +93,9 @@ gulp.task('clean', function() {
 gulp.task('watch', function() {
 	gulp.watch('app/scss/**/*.scss', gulp.parallel('sass'));
 	gulp.watch('app/js/main.js', gulp.parallel('js'));
-	// gulp.watch('app/js/libs/**/*.js', gulp.parallel('js-libs'));
+	gulp.watch(['app/js/libs/*.js' , '!app/js/libs/*min.js'], gulp.parallel('js-libs'));
+	gulp.watch('app/img/**/*', gulp.parallel('img'));
 	gulp.watch('app/*.html', gulp.parallel('html'));
 })
 
-gulp.task('default', gulp.parallel('clean', 'sass', 'js-libs', 'js', 'html', 'browser-sync', 'watch'))
+gulp.task('default', gulp.parallel('clean', ['img', 'sass', 'css', 'js', 'js-libs', 'html', 'browser-sync'], 'watch'))
