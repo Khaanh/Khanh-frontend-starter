@@ -1,4 +1,3 @@
-@import 'libs/popup';
 @import 'helpers/_variables';
 @import 'helpers/_mixins';
 @import 'components/_buttons';
@@ -13,10 +12,15 @@ body {
 	display: flex;
 	justify-self: start;
 	box-shadow: 0 0 0 0;
+	border-color: red;
+	color: palegreen;
+	@media only screen and (max-width: 767px) {
+		background-color: $white;
+	}
 }
 
 
 
-
+@import 'libs/popup';
 @import 'pages/_home';
 @import 'helpers/_media'
