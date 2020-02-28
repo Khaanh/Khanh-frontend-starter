@@ -1,26 +1,13 @@
 @import 'helpers/_variables';
 @import 'helpers/_mixins';
+@import 'helpers/_reset';
 @import 'components/_buttons';
 @import 'components/_header';
 @import 'components/_footer';
 
 
-body {
-	background-color: #000;
-	color: $black;
-	height: 50vh;
-	display: flex;
-	justify-self: start;
-	box-shadow: 0 0 0 0;
-	border-color: red;
-	color: palegreen;
-	@media only screen and (max-width: 767px) {
-		background-color: $white;
-	}
-}
 
 
-
-@import 'libs/popup';
 @import 'pages/_home';
+@import 'libs/popup';
 @import 'helpers/_media'
