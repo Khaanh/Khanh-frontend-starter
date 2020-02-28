@@ -9,18 +9,22 @@ concat = require('gulp-concat'),
 uglify = require('gulp-uglify'),
 del = require('del'),
 imagemin = require('gulp-imagemin'),
-changed = require('gulp-changed');
+changed = require('gulp-changed'),
+plumber = require('gulp-plumber'),
+injectHtml = require('gulp-inject-partials');
 
 
 gulp.task('sass', function() {
 	return gulp.src('app/scss/**/*.scss')
 	.pipe(sourcemaps.init())
+	.pipe(plumber())
 	.pipe(sass().on('error', sass.logError))
 	.pipe(prefixer('last 5 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 	.pipe(cssnano())
 	.pipe(rename({suffix: '.min'}))
-	.pipe(gulp.dest('dist/css'))
 	.pipe(sourcemaps.write('.'))
+	// .pipe(plumber.stop())
+	.pipe(gulp.dest('dist/css'))
 	.pipe(gulp.dest('app/css'))
 	.pipe(browserSync.reload({stream: true}))
 })
@@ -70,9 +74,10 @@ gulp.task('js-libs', function() {
 		.pipe(browserSync.reload({stream: true}))
 })
 
-
 gulp.task('html', function() {
 	return gulp.src('app/*.html')
+	.pipe(injectHtml())
+	// .pipe(gulp.dest('app/'))
 	.pipe(gulp.dest('dist/'))
 	.pipe(browserSync.reload({stream: true}))
 })
@@ -98,4 +103,4 @@ gulp.task('watch', function() {
 	gulp.watch('app/*.html', gulp.parallel('html'));
 })
 
-gulp.task('default', gulp.parallel('clean', ['img', 'sass', 'css', 'js', 'js-libs', 'html', 'browser-sync'], 'watch'))
+gulp.task('default', gulp.parallel('sass', 'css', 'js', 'js-libs', 'img', 'html', 'browser-sync', 'watch', ['clean']))

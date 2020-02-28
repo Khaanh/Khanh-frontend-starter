@@ -8,7 +8,7 @@
 body {
 	background-color: #000;
 	color: $black;
-	height: 50vh;
+	height: calc(100vh - 80px);
 	display: flex;
 	justify-self: start;
 	box-shadow: 0 0 0 0;
