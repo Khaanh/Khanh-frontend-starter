@@ -6,7 +6,7 @@ prefixer = require('gulp-autoprefixer'),
 cssnano = require('gulp-cssnano'),
 rename = require('gulp-rename'),
 concat = require('gulp-concat'),
-uglify = require('gulp-uglify')
+uglify = require('gulp-uglify'),
 del = require('del'),
 imagemin = require('gulp-imagemin'),
 changed = require('gulp-changed');
@@ -28,6 +28,7 @@ gulp.task('sass', function() {
 gulp.task('css', function() {
 	return gulp.src('app/scss/**/*.scss')
 		.pipe(sass())
+		.pipe(prefixer('last 5 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(concat('main.css'))
 		.pipe(gulp.dest('dist/css'))
 })

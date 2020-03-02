@@ -1,33 +1,48 @@
-$(function(){
+// $(function(){
 
-  console.log('ready')
-  $('.nav').addClass('abaacaaa')
+//   console.log('ready')
+//   $('.nav').addClass('abaacaaa')
+
+//   $('.header').addClass('header2')
+
+//   console.log('a')
 
 
-  $('.header').addClass('header2')
+// })
 
 
-  console.log('a')
 
-  // function runScroll() {
-  //   scrollTo(document.body, 0, 600);
+$(document).ready(function() {
+  $('.header').addClass('asdasdasdasdasdasd')
+  
+  $('.header').on('click', function() {
+    $(this).toggleClass('this')
+  })
+  
+  
+  // let nextSection = document.getElementByClassName('js-next');
+  // let scrollDown = document.getElementByClassName('js-scroll-down');
+  
+  
+  // function handleButtonClick(e) {
+  //   e.preventDefault();
+  //   nextSection.scrollIntoView({
+  //     behavior: "smooth"
+  //   });
   // }
-  // var scrollme;
-  // scrollme = document.querySelector("#scrollme");
-  // scrollme.addEventListener("click",runScroll,false)
   
-  // // TODO: use RequestAnimationFrame
-  // function scrollTo(element, to, duration) {
-  //   if (duration <= 0) return;
-  //   var difference = to - element.scrollTop;
-  //   var perTick = difference / duration * 10;
+  // scrollDown.addEventListener('click', handleButtonClick);
   
-  //   setTimeout(function() {
-  //     element.scrollTop = element.scrollTop + perTick;
-  //     if (element.scrollTop == to) return;
-  //     scrollTo(element, to, duration - 10);
-  //   }, 10);
-  // }
+  $('.scroll-block').mCustomScrollbar();
   
-
+  
+  
+  var hiddenElement = document.getElementById("js-next");
+  var btn = document.querySelector('.js-scroll-down');
+  
+  function handleButtonClick() {
+    hiddenElement.scrollIntoView({block: "center", behavior: "smooth"});
+  }
+  
+  btn.addEventListener('click', handleButtonClick);
 })
