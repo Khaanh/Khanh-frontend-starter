@@ -9,11 +9,12 @@ body {
   height: 100%; }
 
 body {
+  font: normal normal 16px/1.25 Arial,sans-serif;
+  color: #000;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  color: #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
@@ -71,18 +72,9 @@ body {
      -moz-appearance: none;
           appearance: none;
   background-origin: border-box;
-  -webkit-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out; }
-  .btn span {
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transition: .3s ease;
-    -o-transition: .3s ease;
-    transition: .3s ease; }
-  .btn:hover span {
-    opacity: 1;
-    visibility: visible; }
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
 
 button[disabled] {
   color: inherit;
