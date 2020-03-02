@@ -1,0 +1,29 @@
+.btn {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: $white;
+  border: 1px solid transparent;
+  background-color: #000;
+  border-radius: 0;
+  box-shadow: 3px 5px 30px 4px #cbd6ee;
+  padding: 16px 14px;
+  min-width: 100px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  appearance: none;
+  background-origin: border-box;
+  @include transition;
+  &:hover {
+  }
+  &:focus {}
+}
+
+button[disabled] {
+  color: inherit;
+  cursor: not-allowed;
+  background-color: $gray;
+}
