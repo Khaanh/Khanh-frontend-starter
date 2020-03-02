@@ -70,7 +70,6 @@ gulp.task('js-libs', function() {
 		.pipe(browserSync.reload({stream: true}))
 })
 
-
 gulp.task('html', function() {
 	return gulp.src('app/*.html')
 	.pipe(gulp.dest('dist/'))
