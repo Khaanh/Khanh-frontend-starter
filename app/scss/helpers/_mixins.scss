@@ -1,0 +1,123 @@
+// Media sizes
+$desktop-lg: 1700px;
+$desktop-md: 1520px;
+$desktop-bg: 1400px;
+$desktop-st: 1280px;
+$desktop: 1170px;
+$tablet-landscape: 1025px;
+$tablet-portrait: 992px;
+$mobile-landscape: 768px;
+$mobile-middle: 620px;
+$mobile-portrait: 479px;
+
+@mixin desktop-lg {
+  @media (max-width: #{$desktop-lg}) {
+    @content;
+  }
+}
+
+@mixin desktop-md {
+  @media (max-width: #{$desktop-md}) {
+    @content;
+  }
+}
+
+@mixin desktop-bg {
+  @media (max-width: #{$desktop-bg}) {
+    @content;
+  }
+} 
+
+@mixin desktop-st {
+  @media (max-width: #{$desktop-st}) {
+    @content;
+  }
+} 
+
+@mixin desktop {
+  @media (max-width: #{$desktop}) {
+    @content;
+  }
+} 
+
+@mixin tablet-l {
+  @media (max-width: #{$tablet-landscape}) {
+    @content;
+  }
+} 
+
+@mixin tablet-p {
+  @media (max-width: #{$tablet-portrait}) {
+    @content;
+  }
+} 
+
+@mixin mobile-l {
+  @media (max-width: #{$mobile-landscape}) {
+    @content;
+  }
+}
+
+@mixin mobile-middle {
+  @media (max-width: #{$mobile-middle}) {
+    @content;
+  }
+} 
+
+@mixin mobile-p {
+  @media (max-width: #{$mobile-portrait}) {
+    @content;
+  }
+}
+
+@mixin min-tablet-p {
+  @media (min-width: #{$tablet-portrait}) {
+    @content;
+  }
+} 
+
+@mixin min-tablet-l {
+  @media (min-width: #{$tablet-landscape}) {
+    @content;
+  }
+} 
+
+
+// Truncate
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Placeholders
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+// Show / Hide elem
+@mixin hide-elem() {
+  opacity: 0;
+  visibility: hidden;
+  @content;
+}
+@mixin show-elem {
+  opacity: 1;
+  visibility: visible;
+}
+
+// Transitions
+@mixin transition() {
+  transition: all 0.3s ease-in-out
+}
+@mixin transition-long() {
+  transition: all 0.5s ease-in-out
+}
+
+
+

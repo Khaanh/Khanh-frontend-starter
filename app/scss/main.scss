@@ -1,26 +1,39 @@
 @import 'helpers/_variables';
 @import 'helpers/_mixins';
+@import 'helpers/_fonts';
+@import 'helpers/_base';
 @import 'components/_buttons';
 @import 'components/_header';
 @import 'components/_footer';
+// @import 'libs/popup';
+@import 'libs/jquerymCustomScrollbar';
+@import 'pages/_home';
 
 
-body {
-	background-color: #000;
-	color: $black;
-	height: 50vh;
-	display: flex;
-	justify-self: start;
-	box-shadow: 0 0 0 0;
-	border-color: red;
-	color: palegreen;
-	@media only screen and (max-width: 767px) {
-		background-color: $white;
-	}
+.input {
+  @include input-placeholder {
+    color: green;
+    opacity: 1;
+  }
 }
 
+.block {
+  text-align: center;
+  padding: 50px;
+}
 
+.hero {
+  height: 100vh;
+  background-color: #f75252;
+}
 
-@import 'libs/popup';
-@import 'pages/_home';
+.next {
+  height: 45vh;;
+  background-color: #7e52f7;
+}
+.scroll-block {
+  width: 48%;
+  height: 200px;
+}
+
 @import 'helpers/_media'
