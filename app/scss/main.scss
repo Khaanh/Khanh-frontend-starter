@@ -6,6 +6,7 @@
 @import 'components/_header';
 @import 'components/_footer';
 // @import 'libs/popup';
+@import 'libs/jquerymCustomScrollbar';
 @import 'pages/_home';
 
 
@@ -29,6 +30,10 @@
 .next {
   height: 45vh;;
   background-color: #7e52f7;
-
 }
+.scroll-block {
+  width: 48%;
+  height: 200px;
+}
+
 @import 'helpers/_media'

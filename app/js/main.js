@@ -33,7 +33,7 @@ $(document).ready(function() {
   
   // scrollDown.addEventListener('click', handleButtonClick);
   
-  
+  $('.scroll-block').mCustomScrollbar();
   
   
   
